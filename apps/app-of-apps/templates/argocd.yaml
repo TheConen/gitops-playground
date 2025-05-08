@@ -5,14 +5,14 @@ metadata:
 spec:
   destination:
     namespace: argocd
-    server: https://kubernetes.default.svc
+    server: {{ .Values.spec.destination.server | quote }}
   source:
-    path: apps/argocd/chart
-    repoURL: https://github.com/TheConen/gitops-playground
-    targetRevision: HEAD
+    chart: argo-cd
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 8.0.0
     helm:
-      valueFiles:
-        - ../values-override.yaml
+      valuesObject:
+        namespaceOverride: argocd
   project: default
   syncPolicy:
     automated:
