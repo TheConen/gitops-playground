@@ -13,7 +13,7 @@ spec:
     helm:
       valuesObject:
         namespaceOverride: "argocd"
-  project: default
+  project: infrastructure
   syncPolicy:
     automated:
       prune: true

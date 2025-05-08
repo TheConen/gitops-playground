@@ -10,7 +10,7 @@ spec:
     path: apps/app-of-apps
     repoURL: {{ .Values.spec.source.repoURL | quote }}
     targetRevision: HEAD
-  project: default
+  project: infrastructure
   syncPolicy:
     automated:
       prune: true
