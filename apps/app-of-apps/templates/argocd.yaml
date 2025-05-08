@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  source:
+    path: apps/argocd/chart
+    repoURL: https://github.com/TheConen/gitops-playground
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../values-override.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
