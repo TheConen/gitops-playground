@@ -1,1 +1,52 @@
-## Add resources to get started
+[[server]]
+name = "fedora-server1"
+[server.config]
+address = "https://192.168.42.130:8120"
+enabled = true
+
+##
+
+[[server]]
+name = "nas1"
+[server.config]
+address = "https://periphery:8120"
+enabled = true
+send_mem_alerts = false
+
+##
+
+[[stack]]
+name = "deluge"
+[stack.config]
+server = "nas1"
+poll_for_updates = true
+files_on_host = true
+run_directory = "/stacks/deluge"
+
+##
+
+[[stack]]
+name = "nightscout"
+[stack.config]
+server = "nas1"
+poll_for_updates = true
+files_on_host = true
+run_directory = "/stacks/nightscout"
+
+##
+
+[[builder]]
+name = "local"
+[builder.config]
+type = "Server"
+params.server_id = "nas1"
+
+##
+
+[[resource_sync]]
+name = "GitOps Playground"
+[resource_sync.config]
+repo = "TheConen/gitops-playground"
+git_account = "theconen"
+resource_path = ["komodo/komodo.toml"]
+managed = true
