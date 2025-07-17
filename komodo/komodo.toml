@@ -1,5 +1,5 @@
 [[server]]
-name = "docker0"
+name = "docker1"
 [server.config]
 address = "https://192.168.42.130:8120"
 enabled = true
@@ -20,6 +20,8 @@ name = "deluge"
 [stack.config]
 server = "nas1"
 poll_for_updates = true
+auto_update = true
+auto_update_all_services = true
 files_on_host = true
 run_directory = "/stacks/deluge"
 
@@ -30,6 +32,8 @@ name = "nightscout"
 [stack.config]
 server = "nas1"
 poll_for_updates = true
+auto_update = true
+auto_update_all_services = true
 files_on_host = true
 run_directory = "/stacks/nightscout"
 
