@@ -1,12 +1,4 @@
 [[server]]
-name = "docker1"
-[server.config]
-address = "https://192.168.42.130:8120"
-enabled = true
-
-##
-
-[[server]]
 name = "nas1"
 [server.config]
 address = "https://periphery:8120"
@@ -49,6 +41,7 @@ params.server_id = "nas1"
 
 [[resource_sync]]
 name = "GitOps Playground"
+template = true
 [resource_sync.config]
 repo = "TheConen/gitops-playground"
 git_account = "theconen"
